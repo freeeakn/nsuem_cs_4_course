@@ -10,6 +10,7 @@ export default function Header() {
     {
       id: '1',
       title: 'Задача 1',
+      url: '/task-1',
       desc: 'Графический метод + двойственная задача',
       icon: BarChart3,
       color: 'from-indigo-500 to-purple-600',
@@ -18,6 +19,7 @@ export default function Header() {
     {
       id: '5',
       title: 'Задача 5',
+      url: '/task-5',
       desc: 'Транспортная задача · 3 станка → 3 продукта',
       icon: Factory,
       color: 'from-emerald-500 to-teal-600',
@@ -26,6 +28,7 @@ export default function Header() {
     {
       id: '15',
       title: 'Задача 15',
+      url: '/task-15',
       desc: 'Оптимальный размер заказа · Минимизация затрат',
       icon: Package,
       color: 'from-amber-500 to-orange-600',
@@ -61,10 +64,10 @@ export default function Header() {
             {tasks.map((task) => (
               <NavLink
                 key={task.id}
-                to={`/task-${task.id}`}
+                to={task.url}
                 icon={<task.icon className="w-4 h-4" />}
                 label={task.title}
-                active={isActive(`/task-${task.id}`)}
+                active={isActive(task.url)}
               />
             ))}
           </div>

@@ -191,7 +191,6 @@ const Task5: React.FC = () => {
                 <tbody>
                   {machines.map((m, i) => {
                     const rowTotal = plan[i].reduce((a, b) => a + b, 0)
-                    const utilization = rowTotal
                     const capacity = capacities[i]
                     const isUnderutilized = rowTotal < capacity
 

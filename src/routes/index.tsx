@@ -1,4 +1,3 @@
-// src/routes/index.tsx
 import { createFileRoute, Link } from '@tanstack/react-router'
 import {
   Card,
@@ -9,14 +8,7 @@ import {
 } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import {
-  Factory,
-  Calculator,
-  Package,
-  BarChart3,
-  Network,
-  Clock,
-} from 'lucide-react'
+import { Factory, Package, BarChart3 } from 'lucide-react'
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -26,6 +18,7 @@ function HomePage() {
   const tasks = [
     {
       id: '1',
+      url: '/task-1',
       title: 'Линейное программирование',
       desc: 'Графический метод',
       icon: BarChart3,
@@ -34,6 +27,7 @@ function HomePage() {
     },
     {
       id: '5',
+      url: '/task-5',
       title: 'Производство посуды',
       desc: 'Транспортная задача · 3 станка → 3 продукта',
       icon: Factory,
@@ -42,35 +36,12 @@ function HomePage() {
     },
     {
       id: '15',
+      url: '/task-15',
       title: 'Модель EOQ',
       desc: 'Оптимальный размер заказа · Минимизация затрат',
       icon: Package,
       color: 'from-amber-500 to-orange-600',
       status: 'Готово',
-    },
-    {
-      id: '7',
-      title: 'Распределение инвестиций',
-      desc: 'Динамическое программирование',
-      icon: Calculator,
-      color: 'from-pink-500 to-rose-600',
-      status: 'В работе',
-    },
-    {
-      id: '16',
-      title: 'Сетевой график',
-      desc: 'CPM · Критический путь · Резервы времени',
-      icon: Network,
-      color: 'from-cyan-500 to-blue-600',
-      status: 'В работе',
-    },
-    {
-      id: '9',
-      title: 'Симуляция очереди',
-      desc: 'Моделирование 30 заданий · СМО',
-      icon: Clock,
-      color: 'from-violet-500 to-purple-600',
-      status: 'В работе',
     },
   ]
 
@@ -96,7 +67,7 @@ function HomePage() {
         {/* Сетка задач */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tasks.map((task) => (
-            <Link key={task.id} to={`/task-${task.id}`} className="group block">
+            <Link key={task.id} to={task.url} className="group block">
               <Card className="h-full overflow-hidden border-2 border-transparent hover:border-indigo-500 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                 <CardHeader>
                   <div
